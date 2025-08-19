@@ -1,29 +1,31 @@
 # Agent Workflows for Business Idea Generation
 
 ## Overview
-This document outlines how Augment agents work together to research, analyze, and plan AI business opportunities through GitHub PRs.
+This document outlines how Augment agents generate and evaluate AI business opportunities through GitHub PRs using a simplified, practical workflow.
 
-## Workflow Process
+## Simplified Workflow Process
 
-### Phase 1: Market Research
-**Agent**: Market Researcher  
-**Objective**: Identify and research one specific AI business opportunity
+### Phase 1: Idea Generation (Start Here)
+**Agent**: Market Researcher
+**Objective**: Generate diverse AI business opportunities quickly
 
 **Process**:
 1. Research current AI trends and market opportunities
 2. Identify target markets and customer segments
 3. Analyze competitive landscape and market gaps
-4. Validate market demand and opportunity size
+4. Create complete business proposal with basic financial projections
 5. Assess fit with available skills and resources
 
-**Deliverable**: 
+**Deliverable**:
 - New branch: `idea-[YYYYMMDD]-[short-description]`
 - Complete business proposal using template
-- PR with market research findings and opportunity assessment
+- PR with market research findings and recommendation
 
-### Phase 2: Business Analysis
-**Agent**: Business Analyst  
-**Objective**: Validate and analyze the business opportunity in detail
+**Goal**: Generate multiple diverse ideas for review and selection
+
+### Phase 2: Deep Analysis (Only for Exciting Ideas)
+**Agent**: Business Analyst
+**Objective**: Perform detailed analysis on selected promising ideas
 
 **Process**:
 1. Validate market research with additional data
@@ -33,14 +35,13 @@ This document outlines how Augment agents work together to research, analyze, an
 5. Perform risk analysis and mitigation planning
 
 **Deliverable**:
-- New branch: `analysis-[YYYYMMDD]-[idea-name]`
-- Enhanced business analysis with financial models
+- Enhanced business analysis with detailed financial models
 - Risk assessment and mitigation strategies
-- PR with go/no-go recommendation
+- Updated PR or new branch with deep analysis
 
-### Phase 3: Project Planning
-**Agent**: Project Planner  
-**Objective**: Create executable implementation plan
+### Phase 3: Implementation Planning (Only for Approved Ideas)
+**Agent**: Project Planner
+**Objective**: Create executable implementation plan for approved ideas
 
 **Process**:
 1. Break down project into manageable phases
@@ -50,24 +51,23 @@ This document outlines how Augment agents work together to research, analyze, an
 5. Design launch and marketing execution plan
 
 **Deliverable**:
-- New branch: `plan-[YYYYMMDD]-[idea-name]`
 - Comprehensive project plan with timelines
 - Resource allocation and budget breakdown
-- PR with implementation readiness assessment
+- Implementation-ready roadmap
 
-## Agent Coordination
+## Recommended Approach
 
-### Sequential Workflow
-Agents work in sequence, each building on the previous agent's work:
-1. **Market Researcher** → Identifies opportunity
-2. **Business Analyst** → Validates and analyzes opportunity  
-3. **Project Planner** → Creates implementation plan
+### Start Simple: Single Agent Idea Generation
+1. **Multiple Market Researcher Agents** generate different business ideas
+2. **Human Review** selects 1-2 most exciting opportunities
+3. **Business Analyst Agent** performs deep analysis on winners only
+4. **Project Planner Agent** creates implementation plan for approved ideas
 
-### Parallel Workflow (Alternative)
-For faster iteration, agents can work in parallel on different ideas:
-- Multiple Market Researchers generate different ideas simultaneously
-- Business Analysts pick up validated ideas for deeper analysis
-- Project Planners create implementation plans for approved ideas
+### Benefits of This Approach
+- **Faster Idea Generation**: More diverse ideas in less time
+- **Reduced Analysis Paralysis**: Deep analysis only where it matters
+- **Better Resource Utilization**: Focus effort on promising opportunities
+- **Practical Decision Making**: Human judgment guides where to invest analysis time
 
 ## GitHub Integration
 

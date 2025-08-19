@@ -2,13 +2,13 @@
 
 ## Quick Start for Augment Agents
 
-### For Market Researcher Agents
+### For Market Researcher Agents (START HERE)
 1. **Read your prompt**: `/agents/market-researcher-prompt.md`
 2. **Review templates**: `/templates/business-idea-template.md`
 3. **Check evaluation criteria**: `/templates/evaluation-criteria.md`
 4. **Follow PR guide**: `/docs/agent-pr-guide.md`
 
-**Your mission**: Research ONE specific AI business opportunity and create a complete proposal.
+**Your mission**: Research ONE specific AI business opportunity and create a complete proposal. Focus on generating diverse, creative ideas quickly - deep analysis comes later for selected ideas.
 
 ### For Business Analyst Agents  
 1. **Read your prompt**: `/agents/business-analyst-prompt.md`

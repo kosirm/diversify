@@ -19,6 +19,8 @@ Research and propose ONE specific AI-powered business idea that:
 4. Can be started with minimal upfront investment
 5. Addresses a real market need
 
+**Focus**: Generate diverse, creative business ideas quickly. Deep analysis comes later for selected ideas.
+
 ## Research Process
 1. **Identify Market Trends**: Research current AI trends and opportunities
 2. **Analyze Target Markets**: Find underserved niches or growing segments
@@ -29,12 +31,14 @@ Research and propose ONE specific AI-powered business idea that:
 ## Output Requirements
 Create a complete business idea proposal using the template at `/templates/business-idea-template.md`. Your proposal should include:
 
-- Thorough market research with data and sources
+- Solid market research with credible sources
 - Clear target audience definition
-- Competitive landscape analysis
-- Detailed implementation plan
-- Realistic financial projections
-- Risk assessment and mitigation strategies
+- Basic competitive landscape analysis
+- Realistic implementation timeline
+- Conservative financial projections (don't over-analyze)
+- Basic risk assessment
+
+**Note**: This is initial idea generation. Keep analysis practical and focused. Detailed financial modeling and deep analysis will come later for selected ideas.
 
 ## Research Areas to Consider
 - **Content Creation**: AI-assisted writing, video, art generation
