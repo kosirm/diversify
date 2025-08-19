@@ -1,26 +1,7 @@
 #!/bin/bash
 
-get_current_version() {
-    local latest_tag=$(git tag --list 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n1 || echo "v0.0.0")
-    echo "$latest_tag"
-}
-
-# Function to increment version
-increment_version() {
-    local current_version=${1#v}
-    local increment_type=$2
-
-    IFS='.' read -r -a version_array <<<"$current_version"
-    local major=${version_array[0]:-0}
-    local minor=${version_array[1]:-0}
-    local patch=${version_array[2]:-0}
-
-    case "$increment_type" in
-    "major") echo "v$((major + 1)).0.0" ;;
-    "minor") echo "v${major}.$((minor + 1)).0" ;;
-    "patch") echo "v${major}.${minor}.$((patch + 1))" ;;
-    esac
-}
+# DIVERSIFY Project Workflow Script
+# Simplified version for AI business idea management
 
 # Function to create a release
 create_release() {
