@@ -23,12 +23,75 @@ list_issues() {
     gh issue list --state open
 }
 
-# Function to create a new issue for agents
+# Function to create a new issue for completely new ideas
+create_new_idea_issue() {
+    local issue_number=${1:-""}
+    local title="[MARKET-RESEARCH] Generate Completely New AI Business Idea"
+
+    if [ -n "$issue_number" ]; then
+        title="$title #$issue_number"
+    fi
+
+    local body="## Task for Market Researcher Agent
+
+**Generate a completely new AI-powered business idea** that leverages available skills and market opportunities.
+
+## Instructions
+1. Read the agent prompt: \`/agents/market-researcher-prompt.md\`
+2. Use the business template: \`/templates/business-idea-template.md\`
+3. Follow the PR guide: \`/docs/agent-pr-guide.md\`
+4. **Review existing ideas** in \`/ideas/\` directory to avoid duplication
+
+## Existing Ideas to Avoid Duplicating
+Check \`/ideas/\` directory for current business ideas:
+- AI-powered brain training games for seniors
+- Humor content creation platform for creators
+- AI-enhanced creative services marketplace
+- AI project management assistant for developers
+
+## Your Mission
+**Research and propose ONE completely new AI business opportunity** that:
+- Leverages existing AI capabilities (GPT, image generation, voice, etc.)
+- Matches the available skill set perfectly
+- Has clear revenue potential within 6-12 months
+- Can be started with minimal upfront investment (<\$2000)
+- Addresses a real, underserved market need
+- Is completely different from existing ideas in this repository
+
+## Skills Available
+- 25+ years software development and project management
+- Strong writing abilities
+- Art and sculpting background
+- Humor and creativity
+- Limited budget but high technical expertise
+
+## Deliverable
+- Create new branch: \`idea-[YYYYMMDD]-[your-unique-description]\`
+- Complete business proposal in \`/ideas/[new-folder]/business-proposal.md\`
+- Submit PR with evaluation score and recommendation
+
+## Success Criteria
+- **Completely original idea** not covered by existing proposals
+- Thorough market research with credible sources
+- Clear target audience and pain point identification
+- Realistic financial projections and business model
+- Technical feasibility assessment
+- Risk analysis and mitigation strategies
+- Score using evaluation criteria (aim for 7.0+ total score)
+- Clear proceed/modify/reject recommendation
+
+**Be creative and find a unique market opportunity!**"
+
+    echo "Creating issue for new AI business idea generation..."
+    gh issue create --title "$title" --body "$body" --label "market-research,business-idea,new-idea"
+}
+
+# Function to create a new issue for agents (specific topics)
 create_agent_issue() {
     local agent_type="$1"
     local idea_topic="$2"
     local description="$3"
-    
+
     if [ -z "$agent_type" ] || [ -z "$idea_topic" ]; then
         echo "Usage: ./diversify.sh agent-issue <agent-type> <idea-topic> [description]"
         echo ""
@@ -40,6 +103,8 @@ create_agent_issue() {
         echo "Examples:"
         echo "  ./diversify.sh agent-issue market-research \"AI Writing Assistant\" \"Tool for content creators\""
         echo "  ./diversify.sh agent-issue business-analysis \"Senior Brain Games\" \"Analyze the mobile game idea\""
+        echo ""
+        echo "For completely new ideas, use: ./diversify.sh new-idea"
         exit 1
     fi
 
@@ -272,6 +337,9 @@ show_status() {
 check_git_repo
 
 case "$1" in
+"new-idea")
+    create_new_idea_issue "$2"
+    ;;
 "agent-issue")
     create_agent_issue "$2" "$3" "$4"
     ;;
@@ -298,10 +366,11 @@ case "$1" in
     ;;
 *)
     echo "DIVERSIFY Project Workflow Script"
-    echo "Usage: ./diversify.sh {command} [args]"
+    echo "Usage: ./diversify.sh {command} [args] OR d {command} [args]"
     echo ""
     echo "Commands:"
-    echo "  agent-issue <type> <topic> [desc]  - Create issue for remote agents"
+    echo "  new-idea [number]                  - Create issue for completely new AI business idea"
+    echo "  agent-issue <type> <topic> [desc]  - Create issue for specific topic (deprecated)"
     echo "  issue-list                         - List all open issues"
     echo "  issue-view <number>                - View issue details"
     echo "  issue-close <number> [comment]     - Close an issue"
@@ -316,10 +385,11 @@ case "$1" in
     echo "  project-planning   - Implementation plans for approved ideas"
     echo ""
     echo "Examples:"
-    echo "  ./diversify.sh agent-issue market-research \"AI Writing Assistant\""
-    echo "  ./diversify.sh status"
-    echo "  ./diversify.sh pr-list"
-    echo "  ./diversify.sh pr-merge 5 squash"
+    echo "  d new-idea                         - Create issue for new AI business idea"
+    echo "  d new-idea 4                       - Create issue #4 for new AI business idea"
+    echo "  d status                           - Show repository status"
+    echo "  d pr-list                          - List open pull requests"
+    echo "  d pr-merge 5 squash                - Merge PR #5 using squash method"
     exit 1
     ;;
 esac
